@@ -1,0 +1,43 @@
+studioflow/
+├── .github/              # CI/CD workflows (e.g., auto-deploy on push)
+├── frontend/             # Next.js Application (The User Interface)
+│   ├── app/              # Next.js 13+ App Router
+│   │   ├── (auth)/       # Route group for login, signup pages
+│   │   ├── (dashboard)/  # Route group for protected app pages
+│   │   │   ├── dashboard/
+│   │   │   │   ├── page.tsx          # Main enhancement UI
+│   │   │   │   └── components/       # UI components for the dashboard
+│   │   │   ├── settings/
+│   │   │   │   └── page.tsx          # User/Team settings, API keys
+│   │   │   ├── billing/
+│   │   │   │   └── page.tsx          # Pricing plans, manage subscription
+│   │   │   └── layout.tsx            # Shared layout for the dashboard
+│   │   ├── api/          # API routes handled by Next.js (e.g., Stripe webhooks)
+│   │   └── layout.tsx    # Root layout (theme provider, etc.)
+│   ├── components/       # Global shared components (buttons, navbars)
+│   ├── lib/              # Helper functions, Supabase client
+│   └── tailwind.config.js
+├── backend/              # FastAPI Application (The Brains)
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py       # FastAPI app instance and root endpoints
+│   │   ├── api/          # API endpoint routers (v1, etc.)
+│   │   │   ├── endpoints/
+│   │   │   │   ├── jobs.py
+│   │   │   │   ├── teams.py
+│   │   │   │   └── billing.py
+│   │   │   └── router.py   # Main API router
+│   │   ├── core/         # Core logic (config, security)
+│   │   ├── db/           # Database session management
+│   │   └── services/     # Business logic services (Stripe, Supabase)
+│   ├── tests/            # API tests
+│   └── requirements.txt
+└── worker/               # Python Worker (The Engine)
+    ├── app/
+    │   ├── __init__.py
+    │   ├── main.py       # Main worker process entrypoint
+    │   ├── jobs/         # Job processing functions
+    │   │   ├── enhance_from_text.py
+    │   │   └── enhance_from_audio.py
+    │   └── core/         # Core logic (FFmpeg commands, TTS client)
+    └── requirements.txt

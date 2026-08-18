@@ -1,0 +1,12 @@
+# =================================================================
+# FILE: worker/requirements.txt
+# =================================================================
+python-dotenv==1.0.0
+supabase==1.0.3
+arq==0.26.0
+azure-cognitiveservices-speech==1.33.0 # The Microsoft AI library
+pydub==0.25.1
+scipy==1.11.3
+# For advanced signal processing and noise reduction
+noisereduce==3.0.0
+torch==2.1.0
